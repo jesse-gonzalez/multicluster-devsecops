@@ -13,7 +13,7 @@ clusterGroup:
   - stackrox
   - policies
   - devsecops-ci
-  - openshift-storage
+  #- openshift-storage
   - quay-enterprise
 
 #  subscriptions:  OpenShift Operator subscriptions from OLM/OperatorHub
@@ -34,10 +34,10 @@ clusterGroup:
       namespace: openshift-operators # operator namespace
       channel: rhacs-3.71
 
-    odf:
-      name: odf-operator
-      namespace: openshift-storage
-      channel: stable-4.10
+    # odf:
+    #   name: odf-operator
+    #   namespace: openshift-storage
+    #   channel: stable-4.10
 
     quay:
       name: quay-operator
@@ -76,11 +76,11 @@ clusterGroup:
       project: opp
       path: charts/hub/acs/secured
 
-    storage:
-      name: storage
-      namespace: openshift-storage
-      project: opp
-      path: charts/hub/odf
+    # storage:
+    #   name: storage
+    #   namespace: openshift-storage
+    #   project: opp
+    #   path: charts/hub/odf
 
     quay-registry:
       name: quay-registry

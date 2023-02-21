@@ -15,7 +15,7 @@ if [ -n "$KUBECONFIG" ]; then
 	KUBECONF_ENV="-e KUBECONFIG=${KUBECONFIG}"
 fi
 
-podman run -it \
+docker run -it \
 	--security-opt label=disable \
 	${KUBECONF_ENV} \
 	${SSH_SOCK_MOUNTS} \
