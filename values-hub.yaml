@@ -9,6 +9,7 @@ clusterGroup:
   - open-cluster-management
   - vault
   - golang-external-secrets
+  - cosi-driver
   - rhacs-operator
   - stackrox
   - policies
@@ -81,6 +82,12 @@ clusterGroup:
     #   namespace: openshift-storage
     #   project: opp
     #   path: charts/hub/odf
+
+    cosi-driver:
+      name: cosi-driver
+      namespace: cosi-driver
+      project: opp
+      path: charts/hub/cosi-driver
 
     quay-registry:
       name: quay-registry
