@@ -86,7 +86,7 @@ clusterGroup:
       - name: ui.enabled
         value: "true"
       - name: ui.serviceType
-        value: LoadBalancer
+        value: ClusterIP
       - name: server.route.enabled
         value: "true"
       - name: server.route.host

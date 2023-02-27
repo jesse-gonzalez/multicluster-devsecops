@@ -9,12 +9,12 @@ clusterGroup:
   - open-cluster-management
   - vault
   - golang-external-secrets
-  - cosi-driver
   - rhacs-operator
   - stackrox
   - policies
   - devsecops-ci
   #- openshift-storage
+  - cosi-driver
   - quay-enterprise
 
 #  subscriptions:  OpenShift Operator subscriptions from OLM/OperatorHub
