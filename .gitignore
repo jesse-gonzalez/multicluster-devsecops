@@ -9,4 +9,4 @@ vault.init
 super-linter.log
 /archive
 values-secret-multicloud-gitops.yaml
-
+.hide

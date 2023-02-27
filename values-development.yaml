@@ -138,11 +138,11 @@ clusterGroup:
       path: charts/region/roxctl
 
 #Adding jchraibi #advanced-devsecops to pattern framework
-    staging-spring-petclinic:
-      name: staging-spring-petclinic
-      namespace: devsecops-qa
-      project: spring-petclinic
-      path: charts/region/stage/spring-petclinic-config
+    # staging-spring-petclinic:
+    #   name: staging-spring-petclinic
+    #   namespace: devsecops-qa
+    #   project: spring-petclinic
+    #   path: charts/region/stage/spring-petclinic-config
 
 #  To have apps in multiple flavors, use namespaces and use helm overrides as appropriate
 #

@@ -139,11 +139,11 @@ data:
           namespace: opendatahub
           path: charts/all/opendatahub
           project: medical-diagnosis
-        openshift-data-foundations:
-          name: odf
-          namespace: openshift-storage
-          path: charts/all/openshift-data-foundations
-          project: medical-diagnosis
+        # openshift-data-foundations:
+        #   name: odf
+        #   namespace: openshift-storage
+        #   path: charts/all/openshift-data-foundations
+        #   project: medical-diagnosis
         openshift-serverless:
           name: serverless
           namespace: xraylab-1
@@ -270,10 +270,10 @@ data:
           name: grafana-operator
           namespace: xraylab-1
           source: community-operators
-        odf:
-          channel: stable-4.11
-          name: odf-operator
-          namespace: openshift-storage
+        # odf:
+        #   channel: stable-4.11
+        #   name: odf-operator
+        #   namespace: openshift-storage
         opendatahub:
           name: opendatahub-operator
           source: community-operators
@@ -789,51 +789,51 @@ spec:
     automated: {}
     #  selfHeal: true
 ---
-# Source: pattern-clustergroup/templates/plumbing/applications.yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: odf
-  namespace: mypattern-hub
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io/foreground
-spec:
-  destination:
-    name: in-cluster
-    namespace: openshift-storage
-  project: medical-diagnosis
-  source:
-    repoURL: https://github.com/pattern-clone/mypattern
-    targetRevision: main
-    path: charts/all/openshift-data-foundations
-    helm:
-      ignoreMissingValueFiles: true
-      valueFiles:
-      - "/values-global.yaml"
-      - "/values-hub.yaml"
-      # Watch the progress of https://issues.redhat.com/browse/GITOPS-891 and update accordingly
-      parameters:
-        - name: global.repoURL
-          value: $ARGOCD_APP_SOURCE_REPO_URL
-        - name: global.targetRevision
-          value: $ARGOCD_APP_SOURCE_TARGET_REVISION
-        - name: global.namespace
-          value: $ARGOCD_APP_NAMESPACE
-        - name: global.pattern
-          value: mypattern
-        - name: global.clusterDomain
-          value: region.example.com
-        - name: global.clusterVersion
-          value: ""
-        - name: global.clusterPlatform
-          value: ""
-        - name: global.hubClusterDomain
-          value: apps.hub.example.com
-        - name: global.localClusterDomain
-          value: apps.region.example.com
-  syncPolicy:
-    automated: {}
-    #  selfHeal: true
+# # Source: pattern-clustergroup/templates/plumbing/applications.yaml
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: odf
+#   namespace: mypattern-hub
+#   finalizers:
+#   - resources-finalizer.argocd.argoproj.io/foreground
+# spec:
+#   destination:
+#     name: in-cluster
+#     namespace: openshift-storage
+#   project: medical-diagnosis
+#   source:
+#     repoURL: https://github.com/pattern-clone/mypattern
+#     targetRevision: main
+#     path: charts/all/openshift-data-foundations
+#     helm:
+#       ignoreMissingValueFiles: true
+#       valueFiles:
+#       - "/values-global.yaml"
+#       - "/values-hub.yaml"
+#       # Watch the progress of https://issues.redhat.com/browse/GITOPS-891 and update accordingly
+#       parameters:
+#         - name: global.repoURL
+#           value: $ARGOCD_APP_SOURCE_REPO_URL
+#         - name: global.targetRevision
+#           value: $ARGOCD_APP_SOURCE_TARGET_REVISION
+#         - name: global.namespace
+#           value: $ARGOCD_APP_NAMESPACE
+#         - name: global.pattern
+#           value: mypattern
+#         - name: global.clusterDomain
+#           value: region.example.com
+#         - name: global.clusterVersion
+#           value: ""
+#         - name: global.clusterPlatform
+#           value: ""
+#         - name: global.hubClusterDomain
+#           value: apps.hub.example.com
+#         - name: global.localClusterDomain
+#           value: apps.region.example.com
+#   syncPolicy:
+#     automated: {}
+#     #  selfHeal: true
 ---
 # Source: pattern-clustergroup/templates/plumbing/applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -1484,20 +1484,20 @@ spec:
   installPlanApproval: Automatic
   startingCSV:
 ---
-# Source: pattern-clustergroup/templates/core/subscriptions.yaml
-apiVersion: operators.coreos.com/v1alpha1
-kind: Subscription
-metadata:
-  name: odf-operator
-  namespace: openshift-storage
-spec:
-  name: odf-operator
-  source: redhat-operators
-  sourceNamespace: openshift-marketplace
-  channel: stable-4.11
-  installPlanApproval: Automatic
-  startingCSV:
----
+# # Source: pattern-clustergroup/templates/core/subscriptions.yaml
+# apiVersion: operators.coreos.com/v1alpha1
+# kind: Subscription
+# metadata:
+#   name: odf-operator
+#   namespace: openshift-storage
+# spec:
+#   name: odf-operator
+#   source: redhat-operators
+#   sourceNamespace: openshift-marketplace
+#   channel: stable-4.11
+#   installPlanApproval: Automatic
+#   startingCSV:
+# ---
 # Source: pattern-clustergroup/templates/core/subscriptions.yaml
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription

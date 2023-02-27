@@ -25,10 +25,10 @@ clusterGroup:
       channel: v4
       source: community-operators
 
-    odf:
-      name: odf-operator
-      namespace: openshift-storage
-      channel: stable-4.11
+    # odf:
+    #   name: odf-operator
+    #   namespace: openshift-storage
+    #   channel: stable-4.11
 
     severless:
       name: serverless-operator
