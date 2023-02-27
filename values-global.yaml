@@ -23,7 +23,7 @@ global:
     account: jesse-gonzalez
     username: jesse-gonzalez
     email: jesse.gonzalez@nutanix.com
-    dev_revision: main
+    dev_revision: my-branch
 
   cosi-driver:
     account_name: "cosiaccount"
