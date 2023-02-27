@@ -15,6 +15,7 @@ clusterGroup:
   - policies
   - devsecops-ci
   # - openshift-storage
+  - cosi-driver
   - quay-enterprise
 
 #  subscriptions:  OpenShift Operator subscriptions from OLM/OperatorHub
