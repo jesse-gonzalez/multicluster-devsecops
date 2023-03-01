@@ -14,7 +14,7 @@ clusterGroup:
   - policies
   - devsecops-ci
   #- openshift-storage
-  - cosi-driver
+  - cosi
   - quay-enterprise
 
 #  subscriptions:  OpenShift Operator subscriptions from OLM/OperatorHub
@@ -85,9 +85,9 @@ clusterGroup:
 
     cosi-driver:
       name: cosi-driver
-      namespace: cosi-driver
+      namespace: cosi
       project: opp
-      path: charts/hub/cosi-driver
+      path: charts/hub/cosi
 
     quay-registry:
       name: quay-registry

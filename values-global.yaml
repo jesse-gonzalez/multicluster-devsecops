@@ -36,7 +36,7 @@ global:
       name: devel
       email: devel@myorg.com
     repo: example
-  opp: false
+  opp: true
 
 main:
   clusterGroupName: hub
