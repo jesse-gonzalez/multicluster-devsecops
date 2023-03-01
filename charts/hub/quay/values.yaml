@@ -13,8 +13,9 @@ quay:
       managed: true
     - name: redis
       managed: true
+    ## this had to be modified
     - name: objectstorage
-      managed: true
+      managed: false
     - name: route
       managed: true
     - name: tls
