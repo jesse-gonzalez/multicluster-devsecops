@@ -14,6 +14,9 @@ global:
   cicd:
     namespace: devsecops-ci
 
+  cloudProvider:
+    storageClass: nutanix-volume
+
   app:
     gatling:
       image: quay.io/hybridcloudpatterns/gatling:latest
@@ -83,9 +86,6 @@ clusterGroup:
       namespace: devsecops-ci
       project: ci
       path: charts/region/pipelines
-      overrides:
-      - name: cloudProvider.storageClass
-        value: "nutanix-volume"
       ignoreDifferences:
       - kind: ServiceAccount
         jsonPointers:
