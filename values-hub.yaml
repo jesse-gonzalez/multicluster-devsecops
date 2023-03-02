@@ -112,9 +112,6 @@ clusterGroup:
       namespace: vault
       project: hub
       path: common/hashicorp-vault
-      overrides:
-      - name: ui.serviceType
-        value: ClusterIP
 
     golang-external-secrets:
       name: golang-external-secrets
