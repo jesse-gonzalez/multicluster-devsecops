@@ -83,6 +83,9 @@ clusterGroup:
       namespace: devsecops-ci
       project: ci
       path: charts/region/pipelines
+      overrides:
+      - name: cloudProvider.storageClass
+        value: "nutanix-volume"
       ignoreDifferences:
       - kind: ServiceAccount
         jsonPointers:
