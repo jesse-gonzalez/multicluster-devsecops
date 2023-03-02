@@ -5,6 +5,9 @@ devel:
   namespace: devsecops-ci
   roxCTLImage: registry.access.redhat.com/advanced-cluster-security/rhacs-roxctl-rhel8:3.71.0-5
 
+cloudProvider:
+  storageClass: nutanix-volume
+
 global:
   options:
     useCSV: False
@@ -13,9 +16,6 @@ global:
   
   cicd:
     namespace: devsecops-ci
-
-  cloudProvider:
-    storageClass: nutanix-volume
 
   app:
     gatling:
