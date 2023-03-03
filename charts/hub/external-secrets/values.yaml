@@ -26,11 +26,6 @@ imageregistrysecret:
   namespaces:
     - devsecops-ci
 
-cosidriver:
-  key: secret/data/hub/cosi-driver
-  namespaces:
-    - devsecops-ci
-
 gitsecret:
   key: secret/data/hub/git
   namespaces:

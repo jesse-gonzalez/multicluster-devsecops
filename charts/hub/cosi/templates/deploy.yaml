@@ -110,28 +110,28 @@ metadata:
     generated-by: kustomize
   name: cosi-driver-ntnx-config
   namespace: {{ .Release.Namespace }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  annotations:
-    cosi.storage.k8s.io/authors: Nutanix Inc
-    cosi.storage.k8s.io/license: Apache V2
-    cosi.storage.k8s.io/support: https://github.com/kubernetes-sigs/container-object-storage-api
-  labels:
-    app.kubernetes.io/component: driver-ntnx
-    app.kubernetes.io/name: cosi-driver-ntnx
-    app.kubernetes.io/part-of: container-object-storage-interface
-    app.kubernetes.io/version: main
-  name: objectstorage-provisioner
-  namespace: {{ .Release.Namespace }}
-stringData: 
-  ACCOUNT_NAME: '{{ (lookup "v1" "Secret" "cosi" "cosi-driver").data.account_name }}'
-  ACCESS_KEY: '{{ (lookup "v1" "Secret" "cosi" "cosi-driver").data.access_key }}'
-  ENDPOINT: '{{ (lookup "v1" "Secret" "cosi" "cosi-driver").data.endpoint }}'
-  PC_SECRET: '{{ (lookup "v1" "Secret" "cosi" "cosi-driver").data.pc_secret }}'
-  SECRET_KEY: '{{ (lookup "v1" "Secret" "cosi" "cosi-driver").data.secret_key }}'
-type: Opaque
+#---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   annotations:
+#     cosi.storage.k8s.io/authors: Nutanix Inc
+#     cosi.storage.k8s.io/license: Apache V2
+#     cosi.storage.k8s.io/support: https://github.com/kubernetes-sigs/container-object-storage-api
+#   labels:
+#     app.kubernetes.io/component: driver-ntnx
+#     app.kubernetes.io/name: cosi-driver-ntnx
+#     app.kubernetes.io/part-of: container-object-storage-interface
+#     app.kubernetes.io/version: main
+#   name: objectstorage-provisioner
+#   namespace: {{ .Release.Namespace }}
+# stringData: 
+#   ACCOUNT_NAME: '{{ (lookup "v1" "Secret" "cosi" "cosi-driver").data.account_name }}'
+#   ACCESS_KEY: '{{ (lookup "v1" "Secret" "cosi" "cosi-driver").data.access_key }}'
+#   ENDPOINT: '{{ (lookup "v1" "Secret" "cosi" "cosi-driver").data.endpoint }}'
+#   PC_SECRET: '{{ (lookup "v1" "Secret" "cosi" "cosi-driver").data.pc_secret }}'
+#   SECRET_KEY: '{{ (lookup "v1" "Secret" "cosi" "cosi-driver").data.secret_key }}'
+# type: Opaque
 ---
 apiVersion: apps/v1
 kind: Deployment
