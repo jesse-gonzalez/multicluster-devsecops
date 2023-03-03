@@ -1,7 +1,7 @@
 kind: BucketClaim
 apiVersion: objectstorage.k8s.io/v1alpha1
 metadata:
-  name: obc-observability-bucket
+  name: quay-registry-bucket
 spec:
   bucketClassName: nutanix-objects
   protocols:
@@ -10,10 +10,9 @@ spec:
 kind: BucketAccess
 apiVersion: objectstorage.k8s.io/v1alpha1
 metadata:
-  name: obc-observability-ba
+  name: quay-registry-ba
 spec:
-  bucketClaimName: obc-observability-bucket
+  bucketClaimName: quay-registry-bucket
   protocol: s3
   bucketAccessClassName: nutanix-objects-bac
-  credentialsSecretName: obc-observability-bucket-creds
-
+  credentialsSecretName: quay-registry-bucket-creds

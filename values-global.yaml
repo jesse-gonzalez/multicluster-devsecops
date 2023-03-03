@@ -25,10 +25,6 @@ global:
     email: jesse.gonzalez@nutanix.com
     dev_revision: my-branch
 
-  cosi-driver:
-    account_name: "cosiaccount"
-    endpoint: "ntnx-objects.ntnxlab.local"
-    
   quay:
     # Needs to be set consistently between hub and spoke clusters
     # TODO: Move back to the hub chart, store in a configmap, have an ACM policy distribute to spoke clusters, have spoke look up from configmap
