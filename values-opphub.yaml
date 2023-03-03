@@ -16,7 +16,6 @@ clusterGroup:
   - devsecops-ci
   # - openshift-storage
   - quay-enterprise
-  - cosi
 
 #  subscriptions:  OpenShift Operator subscriptions from OLM/OperatorHub
 #  - name: the Operator package name (required)
