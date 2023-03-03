@@ -126,11 +126,11 @@ metadata:
   name: objectstorage-provisioner
   namespace: {{ .Release.Namespace }}
 stringData: 
-  ACCESS_KEY: {{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver").data.access_key }}
-  ACCOUNT_NAME: {{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver").data.account_name }}
-  ENDPOINT: {{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver").data.endpoint }}
-  PC_SECRET: {{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver").data.pc_secret }}
-  SECRET_KEY: {{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver").data.secret_key }}
+  ACCESS_KEY: '{{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver").data.access_key }}'
+  ACCOUNT_NAME: '{{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver").data.account_name }}'
+  ENDPOINT: '{{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver").data.endpoint }}'
+  PC_SECRET: '{{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver").data.pc_secret }}'
+  SECRET_KEY: '{{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver").data.secret_key }}'
 type: Opaque
 ---
 apiVersion: apps/v1
