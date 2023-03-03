@@ -9,4 +9,4 @@ stringData:
   thanos.yaml: |
     type: s3
     config:
-      bucket: {{ (lookup "v1" "Secret" "cosi" "quay-creds").data | toJson | quote }}
+      bucket: {{ (lookup "v1" "Secret" "cosi" "quay-creds").data.BucketInfo }}
