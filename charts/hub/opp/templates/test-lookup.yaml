@@ -7,7 +7,7 @@ metadata:
 type: Opaque
 data:
   auth: |
-    test: {{ `{{(lookup "v1" "Secret" "cosi" "quay-creds").data.BucketInfo | b64dec | fromJson }}` }}
+    test: '{{ `{{(lookup "v1" "Secret" "cosi" "quay-creds").data.BucketInfo | b64dec | fromJson }}` }}'
 
 {{- /*                
   #{{- $bucketInfoJson := `{{(lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo}}` }}
