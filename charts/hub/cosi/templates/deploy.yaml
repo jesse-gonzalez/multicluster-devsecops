@@ -125,12 +125,12 @@ metadata:
     app.kubernetes.io/version: main
   name: objectstorage-provisioner
   namespace: {{ .Release.Namespace }}
-stringData:
-  ACCESS_KEY: '{{hub fromSecret "devsecops-ci" "cosi-driver" "access_key" hub}}'
-  ACCOUNT_NAME: '{{hub fromSecret "devsecops-ci" "cosi-driver" "account_name" hub}}'
-  ENDPOINT: '{{hub fromSecret "devsecops-ci" "cosi-driver" "endpoint" hub}}'
-  PC_SECRET: '{{hub fromSecret "devsecops-ci" "cosi-driver" "pc_secret" hub}}'
-  SECRET_KEY: '{{hub fromSecret "devsecops-ci" "cosi-driver" "secret_key" hub}}'
+stringData: 
+  ACCESS_KEY: '{{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver-credentials").data.access_key }}'
+  ACCOUNT_NAME: '{{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver-credentials").data.account_name }}'
+  ENDPOINT: '{{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver-credentialsr").data.endpoint }}'
+  PC_SECRET: '{{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver-credentials").data.pc_secret }}'
+  SECRET_KEY: '{{ (lookup "v1" "Secret" "devsecops-ci" "cosi-driver-credentials").data.secret_key }}'
 type: Opaque
 ---
 apiVersion: apps/v1
