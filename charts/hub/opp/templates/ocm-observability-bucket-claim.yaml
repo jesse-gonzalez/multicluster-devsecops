@@ -2,6 +2,7 @@ kind: BucketClaim
 apiVersion: objectstorage.k8s.io/v1alpha1
 metadata:
   name: obc-observability-bucket
+  namespace: open-cluster-management-observability
 spec:
   bucketClassName: nutanix-objects
   protocols:
@@ -11,6 +12,7 @@ kind: BucketAccess
 apiVersion: objectstorage.k8s.io/v1alpha1
 metadata:
   name: obc-observability-ba
+  namespace: open-cluster-management-observability
 spec:
   bucketClaimName: obc-observability-bucket
   protocol: s3
