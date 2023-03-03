@@ -26,7 +26,7 @@ imageregistrysecret:
   namespaces:
     - devsecops-ci
 
-cosi-driver:
+cosidriver:
   key: secret/data/hub/cosi-driver
   namespaces:
     - devsecops-ci
