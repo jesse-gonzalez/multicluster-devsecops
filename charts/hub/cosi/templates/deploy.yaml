@@ -126,11 +126,11 @@ metadata:
   name: objectstorage-provisioner
   namespace: {{ .Release.Namespace }}
 data:
-  ACCESS_KEY: {{ .Values.access_key }}
-  ACCOUNT_NAME: {{ .Values.account_name }}
-  ENDPOINT: {{ .Values.endpoint }}
-  PC_SECRET: {{ .Values.pc_secret }}
-  SECRET_KEY: {{ .Values.secret_key }}
+  ACCESS_KEY: {{ .Values.access_key | b64enc | quote }}
+  ACCOUNT_NAME: {{ .Values.account_name | b64enc }}
+  ENDPOINT: {{ .Values.endpoint | b64enc | quote }}
+  PC_SECRET: {{ .Values.pc_secret | b64enc | quote }}
+  SECRET_KEY: {{ .Values.secret_key | b64enc | quote }}
 type: Opaque
 ---
 apiVersion: apps/v1
