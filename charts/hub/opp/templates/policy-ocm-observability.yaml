@@ -40,7 +40,6 @@ spec:
               thanos.yaml: |
                 type: s3
                 config:
-                  {{- $bucketInfoJson := `{{ (lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | b64dec | fromJson }}` }}
                   bucket: '{{ index $bucketInfoJson.spec "bucketName" }}'
                   endpoint: '{{ index $bucketInfoJson.spec.secretS3 "endpoint" }}'
                   insecure: true
