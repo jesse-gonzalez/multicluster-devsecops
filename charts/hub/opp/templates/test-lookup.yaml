@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: htpasswd-secret
+  namespace: open-cluster-management-observability
+type: Opaque
+data:
+  auth: '{{ `{{(lookup "v1" "Secret" "cosi" "quay-creds").data.BucketInfo | b64dec | fromJson }}.spec.BucketName` }}'
+
+{{- /*                
+  #{{- $bucketInfoJson := `{{(lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo}}` }}
+  ##    bucket: '{{ index $bucketInfoJson.spec "bucketName" }}'
+  ##    endpoint: '{{ index $bucketInfoJson.spec.secretS3 "endpoint" }}'
+  ##    insecure: true
+  ##    access_key: '{{ index $bucketInfoJson.spec.secretS3 "accessKeyID" }}'
+  ##    secret_key: '{{ index $bucketInfoJson.spec.secretS3 "accessSecretKey" }}'
+*/}}

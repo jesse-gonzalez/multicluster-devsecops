@@ -60,19 +60,6 @@ metadata:
 data:
   DESCRIPTION: "Config keys for openshift-pipelines"
 ---
-# Source: pipelines/templates/app-pipeline/storageclass/vp-storageClass.yaml
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-allowVolumeExpansion: true
-metadata:
-  name: default-rwo-vp
-parameters:
-  encrypted: "true"
-  type: default-rwo
-provisioner: kubernetes.io/aws-ebs
-reclaimPolicy: Delete
-volumeBindingMode: Immediate
----
 # Source: pipelines/templates/app-pipeline/pvcs/pipeline-build-pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -82,7 +69,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: default-rwo-vp
+  storageClassName: default-rwo
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
@@ -105,6 +92,21 @@ rules:
   - imagestreamimports
   verbs:
   - create
+---
+# Source: pipelines/templates/app-pipeline/storageclass/vp-storageClass.yaml
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# allowVolumeExpansion: true
+# metadata:
+#   name: default-rwo
+#
+# parameters:
+#   encrypted: "true"
+#   type: default-rwo
+# provisioner: kubernetes.io/aws-ebs
+# reclaimPolicy: Delete
+# volumeBindingMode: Immediate
+#
 ---
 # Source: pipelines/templates/app-pipeline/tasks/task-crda-scan.yaml
 apiVersion: tekton.dev/v1beta1

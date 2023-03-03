@@ -37,6 +37,14 @@ stringData:
     TEAM_RESYNC_STALE_TIME: 60m
     TESTING: false
     CREATE_NAMESPACE_ON_PUSH: true
+    DISTRIBUTED_STORAGE_CONFIG:
+      s3Storage:
+        - S3Storage
+        - host: ntnx-objects.ntnxlab.local
+          s3_access_key: 5Y-4ByO99GEcD9BAU0hoN5fZoYSzsb2W
+          s3_secret_key: KbUSPf4zCIvPrwV7GIdwFu6NcgJ18g2v
+          s3_bucket: quay
+          storage_path: /datastorage/registry
 ---
 # Source: quay/templates/quayRegistry/cm-create-quaye-pull-secret.yaml
 apiVersion: v1
@@ -307,6 +315,27 @@ spec:
       serviceAccountName: quay-admin-sa
       terminationGracePeriodSeconds: 60
 ---
+# Source: quay/templates/quayRegistry/quay-registry-bucket-claim.yaml
+kind: BucketAccess
+apiVersion: objectstorage.k8s.io/v1alpha1
+metadata:
+  name: quay-registry-ba
+spec:
+  bucketClaimName: quay-registry-bucket
+  protocol: s3
+  bucketAccessClassName: nutanix-objects-bac
+  credentialsSecretName: quay-registry-bucket-creds
+---
+# Source: quay/templates/quayRegistry/quay-registry-bucket-claim.yaml
+kind: BucketClaim
+apiVersion: objectstorage.k8s.io/v1alpha1
+metadata:
+  name: quay-registry-bucket
+spec:
+  bucketClassName: nutanix-objects
+  protocols:
+  - s3
+---
 # Source: quay/templates/quayRegistry/quay-console-link.yaml
 apiVersion: console.openshift.io/v1
 kind: ConsoleLink
@@ -479,7 +508,7 @@ spec:
     - kind: redis
       managed: true
     - kind: objectstorage
-      managed: true
+      managed: false
     - kind: route
       managed: true
     - kind: tls
