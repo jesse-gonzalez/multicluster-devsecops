@@ -6,6 +6,4 @@ metadata:
   namespace: open-cluster-management-observability
 type: Opaque
 data:
-  test.json: {{ (lookup "v1" "Secret" "cosi" "quay-creds").data | toJson | quote }}
-  auth: |
-    '{{ `{{ (lookup "v1" "Secret" "cosi" "quay-creds").data }}` }}'
+  test.json: '{{ `{{ (lookup "v1" "Secret" "cosi" "quay-creds").data | toJson | quote }}` }}'
