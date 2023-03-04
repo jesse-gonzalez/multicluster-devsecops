@@ -5,8 +5,5 @@ metadata:
   name: thanos-test-secret
   namespace: open-cluster-management-observability
 type: Opaque
-stringData:
-  thanos.yaml: |
-    type: s3
-    config:
-      bucket: {{ (lookup "v1" "Secret" "cosi" "objectstorage-provisioner").data.ACCESS_KEY }}
+data:
+  bucket: {{ (lookup "v1" "Secret" "cosi" "objectstorage-provisioner").data.ACCESS_KEY }}
