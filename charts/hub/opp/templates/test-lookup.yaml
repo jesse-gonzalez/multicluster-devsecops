@@ -6,4 +6,6 @@ metadata:
   namespace: open-cluster-management-observability
 type: Opaque
 data:
-  bucket: {{ (lookup "v1" "Secret" "cosi" "objectstorage-provisioner").data.ACCESS_KEY }}
+  bucket: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "ACCESS_KEY" }}` }}'
+
+
