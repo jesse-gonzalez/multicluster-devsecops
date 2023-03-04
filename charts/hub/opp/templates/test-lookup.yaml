@@ -5,7 +5,7 @@ metadata:
   name: thanos-test-secret
   namespace: open-cluster-management-observability
 type: Opaque
-data:
-  bucket: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "ACCESS_KEY" | b64dec | quote }}` }}'
+stringData:
+  bucket: 'test'
 
 

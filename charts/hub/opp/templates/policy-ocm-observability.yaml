@@ -35,10 +35,10 @@ spec:
                 type: s3
                 config:
                   bucket: thanos
-                  endpoint: ntnx-objects.ntnxlab.local
+                  endpoint: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "ENDPOINT" }}` }}'
                   insecure: true
-                  access_key: 5Y-4ByO99GEcD9BAU0hoN5fZoYSzsb2W
-                  secret_key: KbUSPf4zCIvPrwV7GIdwFu6NcgJ18g2v
+                  access_key: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "ACCESS_KEY" }}` }}'
+                  secret_key: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "SECRET_KEY" }}` }}'
               type: Opaque
         - complianceType: musthave
           objectDefinition:
