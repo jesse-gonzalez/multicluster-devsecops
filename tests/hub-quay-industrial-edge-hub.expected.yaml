@@ -40,9 +40,9 @@ stringData:
     DISTRIBUTED_STORAGE_CONFIG:
       s3Storage:
         - S3Storage
-        - host: ntnx-objects.ntnxlab.local
-          s3_access_key: 5Y-4ByO99GEcD9BAU0hoN5fZoYSzsb2W
-          s3_secret_key: KbUSPf4zCIvPrwV7GIdwFu6NcgJ18g2v
+        - host: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "ENDPOINT" }}` }}'
+          s3_access_key: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "ACCESS_KEY" }}` }}'
+          s3_secret_key: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "SECRET_KEY" }}` }}'
           s3_bucket: quay
           storage_path: /datastorage/registry
 ---
