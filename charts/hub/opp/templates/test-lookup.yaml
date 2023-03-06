@@ -10,5 +10,6 @@ metadata:
 type: Opaque
 stringData:
   bucket: {{ $value }}
+  test: {{ fromSecret "cosi" "objectstorage-provisioner" "ENDPOINT" }}
 
 
