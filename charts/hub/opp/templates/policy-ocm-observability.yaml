@@ -35,10 +35,10 @@ spec:
                 type: s3
                 config:
                   bucket: thanos
-                  endpoint: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "ENDPOINT" }}` }}'
+                  endpoint: '{{ `{{hub fromSecret "cosi" "objectstorage-provisioner" "ENDPOINT" hub}}` }}'
                   insecure: true
-                  access_key: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "ACCESS_KEY" }}` }}'
-                  secret_key: '{{ `{{ fromSecret "cosi" "objectstorage-provisioner" "SECRET_KEY" }}` }}'
+                  access_key: '{{ `{{hub fromSecret "cosi" "objectstorage-provisioner" "ACCESS_KEY" hub}}` }}'
+                  secret_key: '{{ `{{hub fromSecret "cosi" "objectstorage-provisioner" "SECRET_KEY" hub}}` }}'
               type: Opaque
         - complianceType: musthave
           objectDefinition:
