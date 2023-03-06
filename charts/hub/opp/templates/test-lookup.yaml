@@ -1,6 +1,6 @@
-{{- $secret := "obc-observability-bucket-creds" }}
+{{- $secret := "grafana-config" }}
 {{- $secretData := .Files.Get (printf "secrets/%s.json" $secret) | b64dec | fromJson }}
-{{- $value := index $secretData.data "BucketInfo" }}
+{{- $value := index $secretData.data "grafana-config.ini" }}
 ---
 apiVersion: v1
 kind: Secret
