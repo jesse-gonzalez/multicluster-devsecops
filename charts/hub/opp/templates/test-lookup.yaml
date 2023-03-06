@@ -1,6 +1,6 @@
 {{- $secret := "obc-observability-bucket-creds" }}
 {{- $secretData := .Files.Get (printf "secrets/%s.json" $secret) | b64dec | fromJson }}
-{{- $value := index $secretData.data.BucketInfo "access_key" }}
+{{- $value := index $secretData.data "BucketInfo" }}
 ---
 apiVersion: v1
 kind: Secret
