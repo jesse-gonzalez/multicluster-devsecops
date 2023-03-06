@@ -1,7 +1,5 @@
-{{- $secret := "grafana-config" }}
-{{- $secretData := .Files.Get (printf "secrets/%s.json" $secret) | b64dec | fromJson }}
-{{- $value := index $secretData.data "grafana-config.ini" }}
----
+
+--
 apiVersion: v1
 kind: Secret
 metadata:
@@ -9,6 +7,5 @@ metadata:
   namespace: open-cluster-management-observability
 type: Opaque
 stringData:
-  bucket: {{ $value }}
-
+  test: 'test'
 
