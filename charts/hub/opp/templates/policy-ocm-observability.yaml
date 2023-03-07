@@ -35,11 +35,11 @@ spec:
               thanos.yaml: |
                 type: s3
                 config:
-                  bucket: '{{ `{{ (lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | base64dec | fromJson }}` }}'
-                  endpoint: '{{ `{{ (lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | base64dec | fromJson }}` }}'
+                  bucket: '{{ `{{ index ((lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | base64dec | fromJson).spec "bucketName" }}` }}'
+                  endpoint: '{{ `{{ index ((lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | base64dec | fromJson).spec "bucketName" }}` }}'
                   insecure: false
-                  access_key: '{{ `{{ (lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | base64dec | fromJson }}` }}'
-                  secret_key: '{{ `{{ (lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | base64dec | fromJson }}` }}'
+                  access_key: '{{ `{{ index ((lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | base64dec | fromJson).spec "bucketName" }}` }}'
+                  secret_key: '{{ `{{ index ((lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | base64dec | fromJson).spec "bucketName" }}` }}'
                   http_config:
                     tls_config:
                       insecure_skip_verify: true
