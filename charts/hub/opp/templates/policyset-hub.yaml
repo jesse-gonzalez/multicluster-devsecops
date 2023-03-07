@@ -16,3 +16,4 @@ spec:
   - policy-ocm-observability
   # - policy-odf-status
   - policy-quay-status
+  - policy-quay-config-secret
