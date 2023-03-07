@@ -35,8 +35,8 @@ spec:
               thanos.yaml: |
                 type: s3
                 config:
-                  bucket: '{{ `{{ (lookup "objectstorage.k8s.io.io/v1alpha1" "ObjectBucket" "open-cluster-management-observability" "obc-observability-bucket").status.bucketName }}` }}'
-                  endpoint: '{{ `{{ (lookup "objectstorage.k8s.io.io/v1alpha1" "ObjectBucket" "open-cluster-management-observability" "obc-observability-bucket").status.bucketName }}` }}'
+                  bucket: '{{ `{{ (lookup "objectstorage.k8s.io.io/v1alpha1" "BucketClaim" "open-cluster-management-observability" "obc-observability-bucket").status.bucketName }}` }}'
+                  endpoint: '{{ `{{ (lookup "objectstorage.k8s.io.io/v1alpha1" "BucketClaim" "open-cluster-management-observability" "obc-observability-bucket").status.bucketName }}` }}'
                   insecure: false
                   access_key: '{{ `{{ (lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | base64dec }}` }}'
                   secret_key: '{{ `{{ (lookup "v1" "Secret" "open-cluster-management-observability" "obc-observability-bucket-creds").data.BucketInfo | base64dec }}` }}'
