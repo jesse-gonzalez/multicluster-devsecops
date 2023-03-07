@@ -42,6 +42,23 @@ spec:
               type: Opaque
         - complianceType: musthave
           objectDefinition:
+            apiVersion: v1
+            kind: Secret
+            metadata:
+              name: thanos-object-storage-v2
+              namespace: open-cluster-management-observability
+            stringData:
+              thanos.yaml: |
+                type: s3
+                config:
+                  bucket: thanos
+                  endpoint: '{{ `{{hub fromSecret "open-cluster-management-observability" "obc-observability-bucket-creds" ".data.BucketInfo" hub}}` }}'
+                  insecure: true
+                  access_key: '{{ `{{hub fromSecret "open-cluster-management-observability" "obc-observability-bucket-creds" ".data.BucketInfo" hub}}` }}'
+                  secret_key: '{{ `{{hub fromSecret "open-cluster-management-observability" "obc-observability-bucket-creds" ".data.BucketInfo" hub}}` }}'
+              type: Opaque
+        - complianceType: musthave
+          objectDefinition:
             apiVersion: observability.open-cluster-management.io/v1beta2
             kind: MultiClusterObservability
             metadata:

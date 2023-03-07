@@ -2,6 +2,7 @@
 *.swp
 *.swo
 values-secret-local.yaml
+.todo
 .*.expected.yaml
 pattern-vault.init
 vault.init
