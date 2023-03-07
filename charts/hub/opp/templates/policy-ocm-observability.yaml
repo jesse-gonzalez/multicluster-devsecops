@@ -30,23 +30,7 @@ spec:
             metadata:
               name: thanos-object-storage
               namespace: open-cluster-management-observability
-            stringData:
-              thanos.yaml: |
-                type: s3
-                config:
-                  bucket: thanos
-                  endpoint: '{{ `{{hub fromSecret "cosi" "objectstorage-provisioner" "ENDPOINT" hub}}` }}'
-                  insecure: true
-                  access_key: '{{ `{{hub fromSecret "cosi" "objectstorage-provisioner" "ACCESS_KEY" hub}}` }}'
-                  secret_key: '{{ `{{hub fromSecret "cosi" "objectstorage-provisioner" "SECRET_KEY" hub}}` }}'
               type: Opaque
-        - complianceType: musthave
-          objectDefinition:
-            apiVersion: v1
-            kind: Secret
-            metadata:
-              name: thanos-object-storage-v2
-              namespace: open-cluster-management-observability
             stringData:
               thanos.yaml: |
                 type: s3
@@ -59,7 +43,6 @@ spec:
                   http_config:
                     tls_config:
                       insecure_skip_verify: true
-              type: Opaque
         - complianceType: musthave
           objectDefinition:
             apiVersion: observability.open-cluster-management.io/v1beta2
