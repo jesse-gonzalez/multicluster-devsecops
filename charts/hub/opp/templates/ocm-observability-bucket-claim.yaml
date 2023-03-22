@@ -19,3 +19,4 @@ spec:
   bucketAccessClassName: nutanix-objects-bac
   credentialsSecretName: obc-observability-bucket-creds
 
+
