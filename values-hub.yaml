@@ -33,7 +33,8 @@ clusterGroup:
     acs:
       name: rhacs-operator  #packageName
       namespace: openshift-operators # operator namespace
-      channel: rhacs-3.71
+      #channel: rhacs-3.71
+      channel: stable
 
     # odf:
     #   name: odf-operator
@@ -44,6 +45,8 @@ clusterGroup:
       name: quay-operator
       namespace: openshift-operators
       channel: stable-3.7
+      #channel: stable-3.7
+      channel: stable
 
 # The following section is used by
 # OpenShift GitOps (ArgoCD)
