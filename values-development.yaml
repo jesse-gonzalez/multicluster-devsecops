@@ -60,8 +60,8 @@ clusterGroup:
     quay-bridge-operator:
       name: quay-bridge-operator
       namespace: openshift-operators
-      #channel: stable-3.7
-      channel: stable
+      channel: stable-3.7
+      #channel: stable
 
   projects:
     - secured

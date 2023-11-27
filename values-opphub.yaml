@@ -44,8 +44,8 @@ clusterGroup:
     quay-operator:
       name: quay-operator
       namespace: openshift-operators
-      #hannel: stable-3.7
-      channel: stable
+      channel: stable-3.7
+      #channel: stable
 
 # The following section is used by
 # OpenShift GitOps (ArgoCD)
