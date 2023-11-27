@@ -28,7 +28,7 @@ clusterGroup:
     acm:
       name: advanced-cluster-management
       namespace: open-cluster-management
-      channel: release-2.6
+      channel: release-2.8
 
     acs:
       name: rhacs-operator  #packageName
@@ -46,7 +46,6 @@ clusterGroup:
       namespace: openshift-operators
       channel: stable-3.7
       #channel: stable-3.7
-      channel: stable
 
 # The following section is used by
 # OpenShift GitOps (ArgoCD)
