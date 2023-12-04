@@ -8,6 +8,7 @@ clusterGroup:
 # and creates an operator group for that namespace
   namespaces:
   - open-cluster-management
+  - open-cluster-management-observability
   - vault
   - golang-external-secrets
   - rhacs-operator
